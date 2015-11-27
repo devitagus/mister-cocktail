@@ -20,7 +20,7 @@ class CocktailsController < ApplicationController
       redirect_to cocktail_path(@cocktail.id)
     else
       flash[:notice] = "Oops something went wrong"
-      render "new"
+      render :new
     end
   end
 
@@ -28,7 +28,7 @@ class CocktailsController < ApplicationController
 private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :picture)
   end
 
   def set_cocktail
